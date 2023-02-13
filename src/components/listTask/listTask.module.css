@@ -1,0 +1,27 @@
+.section_list_li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.section_list_actions {
+    display: flex;
+    align-items: center;
+}
+
+p {
+    color: var(--primary-color);
+}
+
+@media only screen and (min-width: 500px) {
+    li {
+        padding: 1rem;
+        margin: 1rem;
+        font-size: 2rem;
+    }
+}

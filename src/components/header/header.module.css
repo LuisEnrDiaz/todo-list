@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+@media only screen and (min-width: 500px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    h1 {
+        font-size: 4rem;
+    }
+}
