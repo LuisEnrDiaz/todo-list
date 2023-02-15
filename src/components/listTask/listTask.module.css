@@ -21,6 +21,7 @@
 
 p {
     color: var(--primary-color);
+    font-size: 1.2rem;
 }
 
 @media only screen and (min-width: 500px) {
@@ -28,5 +29,9 @@ p {
         padding: 1rem;
         margin: 1rem;
         font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.8rem;
     }
 }

@@ -28,9 +28,7 @@ export function ListTask({
             return { task: e.task, complete: e.complete };
         });
 
-        const newArray = setListTask(complete);
-
-        localStorage.setItem("ListTask", JSON.stringify(newArray));
+        localStorage.setItem("ListTask", JSON.stringify(setListTask(complete)));
     };
 
     return (

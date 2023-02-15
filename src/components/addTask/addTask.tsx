@@ -16,11 +16,9 @@ export function AddTask() {
 
     const handleForm = (event: SyntheticEvent) => {
         event.preventDefault();
-
         if (task === "") {
             return alert("Agrega una tarea");
         }
-
         setListTask([...listTask, { task: task, complete: false }]);
         setTask("");
     };
