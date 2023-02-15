@@ -38,11 +38,7 @@ export function ListTask({
                     <p>{task.task}</p>
                     <div className={style.section_list_actions}>
                         <AiOutlineCheckCircle
-                            style={{
-                                color: "#2b9348",
-                                margin: "0.5rem",
-                                cursor: "pointer",
-                            }}
+                            className={style.check}
                             onClick={handleComplete}
                         />
                     </div>
@@ -52,11 +48,7 @@ export function ListTask({
                     <p className={style.true}>{task.task}</p>
                     <div className={style.section_list_actions}>
                         <AiOutlineCloseCircle
-                            style={{
-                                color: "#bf211e",
-                                margin: "0.5rem",
-                                cursor: "pointer",
-                            }}
+                            className={style.close}
                             onClick={handleComplete}
                         />
                     </div>

@@ -24,6 +24,20 @@ p {
     font-size: 1.2rem;
 }
 
+.close {
+    font-size: 1.3rem;
+    color: #bf211e;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+.check {
+    font-size: 1.3rem;
+    color: #2b9348;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
 @media only screen and (min-width: 500px) {
     li {
         padding: 1rem;
@@ -32,6 +46,11 @@ p {
     }
 
     p {
+        font-size: 1.8rem;
+    }
+
+    .check,
+    .close {
         font-size: 1.8rem;
     }
 }
