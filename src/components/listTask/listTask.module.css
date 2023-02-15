@@ -14,6 +14,11 @@
     align-items: center;
 }
 
+.true {
+    text-decoration: line-through;
+    text-decoration-color: #bf211e;
+}
+
 p {
     color: var(--primary-color);
 }

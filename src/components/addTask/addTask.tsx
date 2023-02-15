@@ -1,11 +1,11 @@
 import { SyntheticEvent, useEffect, useState } from "react";
 import { ListTask } from "../listTask/listTask";
-import { listTask } from "../types/types";
+import { TaskI } from "../types/typesTask";
 import style from "./addTask.module.css";
 
 export function AddTask() {
     const [task, setTask] = useState("");
-    const [listTask, setListTask] = useState<Array<listTask>>(() =>
+    const [listTask, setListTask] = useState<Array<TaskI>>(() =>
         JSON.parse(localStorage.getItem("ListTask") || "[]")
     );
 
@@ -22,8 +22,12 @@ export function AddTask() {
         }
 
         setListTask([...listTask, { task: task, complete: false }]);
-
         setTask("");
+    };
+
+    const click = (event: SyntheticEvent) => {
+        event.preventDefault();
+        setListTask([]);
     };
 
     useEffect(() => {
@@ -43,11 +47,17 @@ export function AddTask() {
             </section>
             <section className={style.section_list}>
                 {listTask.length ? (
-                    <ul>
-                        {listTask.map((task) => (
-                            <ListTask task={task} />
-                        ))}
-                    </ul>
+                    <>
+                        <button onClick={click}>Delete List</button>
+                        <ul>
+                            {listTask.map((task) => (
+                                <ListTask
+                                    task={task}
+                                    setListTask={setListTask}
+                                />
+                            ))}
+                        </ul>
+                    </>
                 ) : (
                     <h2>Agrega una tarea</h2>
                 )}
