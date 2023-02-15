@@ -1,11 +1,13 @@
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import { ListTask } from "../listTask/listTask";
 import { listTask } from "../types/types";
 import style from "./addTask.module.css";
 
 export function AddTask() {
     const [task, setTask] = useState("");
-    const [list, setList] = useState<Array<listTask>>([]);
+    const [listTask, setListTask] = useState<Array<listTask>>(() =>
+        JSON.parse(localStorage.getItem("ListTask") || "[]")
+    );
 
     const handleChange = (event: SyntheticEvent) => {
         const element = event.target as HTMLFormElement;
@@ -14,9 +16,20 @@ export function AddTask() {
 
     const handleForm = (event: SyntheticEvent) => {
         event.preventDefault();
-        setList([...list, { task: task, complete: false }]);
+
+        if (task === "") {
+            return alert("Agrega una tarea");
+        }
+
+        setListTask([...listTask, { task: task, complete: false }]);
+
         setTask("");
     };
+
+    useEffect(() => {
+        localStorage.setItem("ListTask", JSON.stringify(listTask));
+    }, [listTask]);
+
     return (
         <form onSubmit={handleForm}>
             <section className={style.section_add}>
@@ -29,9 +42,9 @@ export function AddTask() {
                 <button type="submit">Enviar</button>
             </section>
             <section className={style.section_list}>
-                {list.length ? (
+                {listTask.length ? (
                     <ul>
-                        {list.map((task) => (
+                        {listTask.map((task) => (
                             <ListTask task={task} />
                         ))}
                     </ul>

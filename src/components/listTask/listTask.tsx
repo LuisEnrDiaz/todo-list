@@ -1,9 +1,7 @@
+import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
+
 import style from "./listTask.module.css";
-import {
-    AiOutlineCheckCircle,
-    AiFillEdit,
-    AiOutlineCloseCircle,
-} from "react-icons/ai";
+
 export function ListTask({
     task,
 }: {
@@ -14,13 +12,6 @@ export function ListTask({
         <li key={task.task} className={style.section_list_li}>
             <p>{task.task}</p>
             <div className={style.section_list_actions}>
-                <AiFillEdit
-                    style={{
-                        color: "#ffee32",
-                        margin: "0.5rem",
-                        cursor: "pointer",
-                    }}
-                />
                 <AiOutlineCheckCircle
                     style={{
                         color: "#2b9348",
